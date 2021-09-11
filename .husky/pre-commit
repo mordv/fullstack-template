@@ -1,0 +1,5 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+yarn workspace api pre-commit
+yarn workspace front pre-commit

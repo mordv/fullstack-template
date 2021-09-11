@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "dependencies": {
+    "concurrently": "^6.2.1"
+  },
+  "scripts": {
+    "front-start": "yarn workspace front start",
+    "api-start": "yarn workspace api start",
+    "api-debug": "yarn workspace api debug",
+    "app-start": "concurrently -p \"[{name}]\" -n \"React,Node\" -c \"cyan.bold,green.bold\" --kill-others-on-fail \"yarn front-start\"  \"yarn api-start\"",
+    "app-debug": "concurrently -p \"[{name}]\" -n \"React,Node\" -c \"cyan.bold,green.bold\" --kill-others-on-fail \"yarn front-start\"  \"yarn api-debug\"",
+    "prepare": "husky install"
+  },
+  "workspaces": [
+    "front",
+    "api"
+  ]
+}
